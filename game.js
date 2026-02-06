@@ -45,14 +45,14 @@ class PreloadScene extends Phaser.Scene {
         graphics.fillRect(0, 0, size, size);
 
         // 添加卡通风格装饰元素
-        this.addSceneDecorations(graphics, scene);
+        this.addSceneDecorations(graphics, scene, size);
 
         // 生成纹理
         graphics.generateTexture(`bg_${scene.id}`, size, size);
         graphics.destroy();
     }
 
-    addSceneDecorations(graphics, scene) {
+    addSceneDecorations(graphics, scene, size) {
         // 添加云朵
         graphics.fillStyle('#ffffff', 0.8);
         this.drawCloud(graphics, 100, 80, 60);
