@@ -71,9 +71,6 @@ class PreloadScene extends Phaser.Scene {
         const groundColor = Phaser.Display.Color.ValueToColor(scene.backgroundColor).darken(20);
         graphics.fillStyle(`#${groundColor.color.toString(16)}`, 1);
         graphics.fillRect(0, size - 80, size, 80);
-
-        // 添加卡通草地/地板纹理
-        this.addPattern(graphics, 0, size - 80, size, 80, scene.id);
     }
 
     drawCloud(graphics, x, y, size) {
@@ -81,31 +78,6 @@ class PreloadScene extends Phaser.Scene {
         graphics.arc(x, y, size * 0.5, Phaser.Math.PI2, 0, true);
         graphics.fillPath();
         graphics.closePath();
-    }
-
-    addPattern(graphics, x, y, width, height, sceneType) {
-        graphics.lineStyle(2, 0xffffff, 0.3);
-        
-        if (sceneType === 'park') {
-            // 草地纹理
-            for (let i = 0; i < 20; i++) {
-                const px = x + Math.random() * width;
-                const py = y + Math.random() * height;
-                graphics.fillCircle(px, py, 5);
-            }
-        } else if (sceneType === 'classroom') {
-            // 课桌纹理
-            for (let i = 0; i < 10; i++) {
-                const px = x + (width / 10) * i + 30;
-                graphics.fillRect(px, y + 20, 40, 60);
-            }
-        } else if (sceneType === 'home') {
-            // 地板纹理
-            for (let i = 0; i < 15; i++) {
-                const px = x + Math.random() * width;
-                graphics.fillRect(px, y + Math.random() * height, 3, height);
-            }
-        }
     }
 
     create() {
