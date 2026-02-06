@@ -1,25 +1,15 @@
 // 游戏主文件
-class EnglishHideSeekGame extends Phaser.Game {
-    constructor() {
-        const config = {
-            type: Phaser.AUTO,
-            width: 960,
-            height: 640,
-            parent: 'game-container',
-            backgroundColor: '#667eea',
-            scale: {
-                mode: Phaser.Scale.FIT,
-                autoCenter: Phaser.Scale.CENTER_BOTH
-            },
-            scene: {
-                preload: PreloadScene,
-                create: MenuScene,
-                scenes: [PreloadScene, MenuScene, GameScene, WinScene]
-            }
-        };
-        super(config);
+const config = {
+    type: Phaser.AUTO,
+    width: 960,
+    height: 640,
+    parent: 'game-container',
+    backgroundColor: '#667eea',
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
     }
-}
+};
 
 // 预加载场景
 class PreloadScene extends Phaser.Scene {
@@ -638,7 +628,10 @@ class WinScene extends Phaser.Scene {
     }
 }
 
+// 注册场景
+config.scene = [PreloadScene, MenuScene, GameScene, WinScene];
+
 // 初始化游戏
 window.addEventListener('load', () => {
-    new EnglishHideSeekGame();
+    new Phaser.Game(config);
 });
