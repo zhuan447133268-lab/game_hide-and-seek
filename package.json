@@ -1,0 +1,14 @@
+{
+  "name": "english-hide-seek-game",
+  "version": "1.0.0",
+  "description": "人教版小学英语捉迷藏游戏",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "build": "echo 'No build step needed'"
+  },
+  "keywords": ["game", "education", "english", "phaser"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}
